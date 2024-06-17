@@ -1,0 +1,66 @@
+---
+title: "Project1"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+library(readr)
+```
+
+```{r}
+census <- read_csv("https://www4.stat.ncsu.edu/~online/datasets/EDU01a.csv")
+```
+
+```{r}
+install.packages("tidyr")
+```
+
+```{r}
+library(data.table)
+census |>
+  pivot_longer(names_to = "Area_name")
+```
+
+```{r}
+
+```
+
+```{r}
+census <- as.numeric(year)
+```
+
+```{r}
+class(your_county_tibble) <- c("county", class(your_county_tibble))
+```
+
+```{r}
+#here is the idea in case it isn't clear
+my_wrapper <- function(url, default_var_name = "default of some kind"){
+result <- read_csv_code(...) |>
+function_for_step_1_2(...) |>
+function_for_step_3(...) |>
+function_for_steps4_5_6(...)
+#re
+```
