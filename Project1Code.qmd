@@ -38,29 +38,75 @@ install.packages("tidyr")
 ```
 
 ```{r}
-library(data.table)
+library(dplyr)
 census |>
-  pivot_longer(names_to = "Area_name")
+  select(ends_with("D"),Area_name, STCOU)
 ```
 
 ```{r}
-
+library(tidyverse)
 ```
 
 ```{r}
-census <- as.numeric(year)
+census |>
+  select(ends_with("D"),Area_name, STCOU) |>
+  pivot_longer(cols = "Area_name",
+               values_to = "Area_name")
 ```
 
 ```{r}
-class(your_county_tibble) <- c("county", class(your_county_tibble))
+census |>
+  select(ends_with("D"),Area_name, STCOU) |>
+  pivot_longer(cols = "Area_name",
+               values_to = "Area_name") |>
+                 substr("year", 1, 7)
+```
+
+```{r}
+#grep(pattern = ", \\w\\w", Area_name)
+```
+
+```{r}
+#class(your_county_tibble) <- c("county", class(your_county_tibble))
+```
+
+```{r}
+census2 <- read_csv("https://www4.stat.ncsu.edu/~online/datasets/EDU01b.csv")
 ```
 
 ```{r}
 #here is the idea in case it isn't clear
-my_wrapper <- function(url, default_var_name = "default of some kind"){
-result <- read_csv_code(...) |>
-function_for_step_1_2(...) |>
-function_for_step_3(...) |>
-function_for_steps4_5_6(...)
-#re
+census2 |>
+  select(ends_with("D"),Area_name, STCOU) |>
+  pivot_longer(cols = "Area_name",
+               values_to = "Area_name") |>
+                 substr("year", 1, 7)
+```
+
+```{r}
+#Run these in your console
+plot.function #what is used for a class = function
+getS3method("plot", census2) #what is used for a class = data frame
+```
+
+```{r}
+plot
+```
+
+```{r}
+#plot.state <- function(...){...}
+```
+
+```{r}
+#plot.state <- function(df, var_name = "_your_default_value_"){
+#code to find the means for each division and year (think tidyverse)
+#Use get(var_name) to reference the var_name in your call to mean(): mean(get(var_name))
+#For this, think group_by along with summarize
+#remove the "ERROR" setting
+#create a line plot with ggplot with appropriate aes() assignments
+}
+```
+
+```{r}
+
 ```
